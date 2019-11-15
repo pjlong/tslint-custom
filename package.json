@@ -1,0 +1,19 @@
+{
+  "name": "tslint-onemedical",
+  "version": "1.0.0",
+  "description": "Internal TSLint Rules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tslint",
+    "lint",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tslint": "^5.20.1"
+  }
+}

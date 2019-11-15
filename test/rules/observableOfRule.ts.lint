@@ -1,0 +1,9 @@
+import { of } from 'rxjs';
+         ~~                [observable-of]
+
+import { of as fooBar } from 'rxjs';
+         ~~~~~~~~~~~~                [observable-of]
+
+import { of as observableOf } from 'rxjs';
+
+[observable-of]: 'of' must be imported as 'observableOf'
