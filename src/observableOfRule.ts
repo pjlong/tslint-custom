@@ -10,19 +10,23 @@ export class Rule extends Lint.Rules.AbstractRule {
 }
 
 function walk(ctx: Lint.WalkContext<void>) {
-  return ts.forEachChild(ctx.sourceFile, cb);
+  return ctx.sourceFile.forEachChild(cb);
 
   function cb(node: ts.Node): void {
     if (node.kind === ts.SyntaxKind.ImportDeclaration) {
       const importDeclarationNode = node as ts.ImportDeclaration;
 
-      if (importDeclarationNode.moduleSpecifier.getText() === "'rxjs'") {
+      if (
+        importDeclarationNode.moduleSpecifier
+        && importDeclarationNode.moduleSpecifier.getText() === "'rxjs'"
+        && importDeclarationNode.importClause
+      ) {
         const namedImports = importDeclarationNode.importClause.namedBindings as ts.NamedImports;
 
         namedImports.elements.forEach(element => {
           if (
-            (!element.propertyName && element.name.text === 'of') ||
-            (element.propertyName.text === 'of' && element.name.text !== 'observableOf')
+            (!element.propertyName && element.name.text === 'of')
+            || (element.propertyName && element.propertyName.text === 'of' && element.name.text !== 'observableOf')
           ) {
             ctx.addFailureAtNode(
               element,
@@ -34,6 +38,6 @@ function walk(ctx: Lint.WalkContext<void>) {
       }
     }
 
-    return ts.forEachChild(node, cb);
+    return node.forEachChild(cb);
   }
 }

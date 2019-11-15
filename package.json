@@ -4,7 +4,13 @@
   "description": "Internal TSLint Rules",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm ./*.js",
+    "compile": "tsc ./src/*.ts --outDir ./",
+    "test": "npm run compile && tslint --test src/test/**"
+  },
+  "engines": {
+    "node": "~12.10.0",
+    "npm": "~6.9.0"
   },
   "keywords": [
     "tslint",
@@ -13,7 +19,14 @@
   ],
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "typescript": ">=2.3.0 || <3.6.0"
+  },
+  "devDependencies": {
+    "typescript": "~3.5.3",
+    "tslint": "5.16.0"
+  },
   "dependencies": {
-    "tslint": "^5.20.1"
+    "@types/node": "^12.12.7"
   }
 }

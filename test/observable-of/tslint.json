@@ -2,5 +2,5 @@
   "rules": {
     "observable-of": true
   },
-  "rulesDirectory": ["."]
+  "rulesDirectory": ["../../"]
 }
