@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rm ./*.js",
     "compile": "tsc ./src/*.ts --outDir ./",
-    "test": "npm run compile && tslint --test src/test/**"
+    "test": "npm run compile && tslint --test src/test/**",
+    "postinstall": "npm run compile"
   },
   "engines": {
     "node": "~12.10.0",
