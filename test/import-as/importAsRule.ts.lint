@@ -1,0 +1,21 @@
+import { bar } from 'notFoo';
+import { bar as baz } from 'foo';
+
+import { bar } from 'foo';
+         ~~~                import-bar-as-baz
+
+import { bar as notBaz } from 'foo';
+         ~~~~~~~~~~~~~               import-bar-as-baz
+
+import { meat as potatoes } from 'spam/eggs';
+import { meat } from 'spam/musubi';
+
+import { meat } from 'spam/eggs';
+         ~~~~                     import-meat-as-potatoes
+
+import { meat as sweetPotatoes } from 'spam/eggs';
+         ~~~~~~~~~~~~~~~~~~~~~                     import-meat-as-potatoes
+
+[import-bar-as-baz]: 'bar' must be imported as 'baz' for module 'foo'
+[import-meat-as-potatoes]: 'meat' must be imported as 'potatoes' for module 'spam/eggs'
+

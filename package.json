@@ -4,9 +4,9 @@
   "description": "Internal TSLint Rules",
   "main": "index.js",
   "scripts": {
-    "clean": "rm ./*.js",
+    "clean": "rm ./*Rule.js",
     "compile": "tsc ./src/*.ts --outDir ./",
-    "test": "npm run compile && tslint --test src/test/**",
+    "test": "npm run compile && tslint --test test/**",
     "postinstall": "npm run compile"
   },
   "engines": {

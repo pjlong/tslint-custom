@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "observable-of": [
+      true,
+      {
+        "foo": {
+          "bar": "baz"
+        },
+        "spam/eggs": {
+          "meat": "potatoes"
+        }
+      }
+    ]
+  },
+  "rulesDirectory": ["../../"]
+}
